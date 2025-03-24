@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958477195185",
+    "project_id": "opakuecommerce",
+    "storage_bucket": "opakuecommerce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958477195185:android:24c48f6f9f53c08ba80f90",
+        "android_client_info": {
+          "package_name": "com.opakuecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958477195185-5db7b30bbdlon786ih5ej8htrduggiq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt4eAHVcoUNABEypy6YTPpvS1XdmENGW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958477195185-5db7b30bbdlon786ih5ej8htrduggiq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
