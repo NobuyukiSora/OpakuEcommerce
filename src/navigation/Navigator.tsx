@@ -33,6 +33,18 @@ const reset = (navigate: string, params?: any) => {
   }
 }
 
+const pureReset = (navigate: string, params?: any) => {
+  console.log('navigate', navigate)
+  if (navigation.isReady()) {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [{ name: navigate, params }],
+        })
+      );
+    }
+}
+
 const goBack = () => {
   if (navigation.isReady()) {
     navigation.dispatch(
@@ -41,4 +53,4 @@ const goBack = () => {
   }
 }
 
-export default { navigate, reset, goBack, navigationRef: navigation }
+export default { navigate, reset, goBack, pureReset, navigationRef: navigation }
