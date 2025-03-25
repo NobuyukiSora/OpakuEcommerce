@@ -7,8 +7,8 @@ export const createStyles = (Metrics: any, insets: any, themeColors: any) =>
       backgroundColor: themeColors.background,
       justifyContent: 'flex-end',
       padding: Metrics[12],
-      paddingTop: insets.Top,
-      paddingBottom: insets.Bottom,
+      paddingTop: insets.top,
+      paddingBottom: insets.bottom,
       width: 300,
     },
     logoutButton: {
@@ -19,4 +19,11 @@ export const createStyles = (Metrics: any, insets: any, themeColors: any) =>
       padding: Metrics[8],
       borderRadius: Metrics[8],
     },
+    languageList: {
+      justifyContent: 'center',
+      width: 85,
+      padding: Metrics[8],
+      borderRadius: Metrics[8],
+      margin: Metrics[2]
+    }
   });

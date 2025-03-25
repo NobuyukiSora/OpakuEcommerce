@@ -13,7 +13,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import {ThemeProvider} from 'soras-ui';
 import AppNavigation from './src/navigation/AppNavigation';
-import {store} from './src/services/store';
+import {store} from './src/services/redux/store';
 
 function App(): React.JSX.Element {
   useEffect(() => {
