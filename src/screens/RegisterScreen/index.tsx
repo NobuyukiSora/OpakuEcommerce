@@ -3,12 +3,13 @@ import analytics from '@react-native-firebase/analytics';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import React, {useMemo} from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Alert, Image, TouchableOpacity, View} from 'react-native';
 import Config from 'react-native-config';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Metrics, themeColors, Typograph} from 'soras-ui';
 import Navigator from '../../navigation/Navigator';
 import {createStyles} from './styles';
+import i18n from '../../services/languageManagement/i18n';
 
 const RegisterScreen = () => {
   const insets = useSafeAreaInsets();
@@ -40,6 +41,7 @@ const RegisterScreen = () => {
       await auth().signInWithCredential(googleCredential);
       Navigator.pureReset('Home');
     } catch (error) {
+      Alert.alert(`Google Sign-In Error: ${error}`)
       console.error('Google Sign-In Error:', error);
     }
   };
@@ -64,7 +66,7 @@ const RegisterScreen = () => {
             width={20}
           />
           <Typograph customStyle={{fontWeight: '800', fontSize: Metrics[16]}}>
-            {Config.FIREBASE_GOOGLE_KEY}
+            {i18n.t('registerScreen.login_google')}
           </Typograph>
         </TouchableOpacity>
       </View>

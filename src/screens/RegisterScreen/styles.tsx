@@ -5,6 +5,7 @@ export const createStyles = (Metrics: any, insets: any, themeColors: any) =>
     container: {
       flex: 1,
       backgroundColor: themeColors.background,
+      padding: Metrics[12],
       paddingTop: insets.top,
       paddingBottom: insets.bottom,
       justifyContent: 'flex-end',

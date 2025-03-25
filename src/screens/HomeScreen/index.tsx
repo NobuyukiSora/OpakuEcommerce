@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import analytics from '@react-native-firebase/analytics';
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {
   DrawerLayoutAndroid,
   FlatList,
@@ -11,13 +11,13 @@ import {
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Colors, Metrics, Rating, themeColors, Typograph} from 'soras-ui';
-import IconStar from '../../assets/icons/Ico.Star.svg';
 import IconBurger from '../../assets/icons/Ico.Burger.svg';
+import IconStar from '../../assets/icons/Ico.Star.svg';
 import Navigator from '../../navigation/Navigator';
-import {useGetAllProductsQuery} from '../../services/api';
+import i18n from '../../services/languageManagement/i18n';
+import {useGetAllProductsQuery} from '../../services/redux/api';
 import {formatCurrency} from '../../tools/currencyFormat';
 import {createStyles} from './styles';
-import Config from 'react-native-config';
 
 const HomeScreen = (drawer?: React.RefObject<DrawerLayoutAndroid | null>) => {
   const insets = useSafeAreaInsets();
@@ -108,7 +108,7 @@ const HomeScreen = (drawer?: React.RefObject<DrawerLayoutAndroid | null>) => {
         <TouchableOpacity onPress={() => drawer?.current?.openDrawer()}>
           <IconBurger stroke={themeColors.text} width={24} height={24} />
         </TouchableOpacity>
-        <Text style={styles.title}>{'Welcome to Opaku Store'}</Text>
+        <Text style={styles.title}>{i18n.t('homeScreen.welcome')}</Text>
       </View>
 
       {error && <Typograph>{`${error}`}</Typograph>}

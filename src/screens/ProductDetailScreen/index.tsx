@@ -13,6 +13,7 @@ import IconStar from '../../assets/icons/Ico.Star.svg';
 import Navigator from '../../navigation/Navigator';
 import {formatCurrency} from '../../tools/currencyFormat';
 import {createStyles} from './styles';
+import i18n from '../../services/languageManagement/i18n';
 
 const DetailProductScreen = ({route}: {route: any}) => {
   const insets = useSafeAreaInsets();
@@ -56,8 +57,12 @@ const DetailProductScreen = ({route}: {route: any}) => {
         <Typograph customStyle={styles.title}>{product?.title}</Typograph>
       </View>
       <View style={styles.detailContainer}>
-        <Typograph>{`Brand: ${product?.brand}`}</Typograph>
-        <Typograph>{`Stock: ${product?.stock} available`}</Typograph>
+        <Typograph>{`${i18n.t('detailProductScreen.brand')} ${
+          product?.brand
+        }`}</Typograph>
+        <Typograph>{`${i18n.t('detailProductScreen.stock')} ${
+          product?.stock
+        } ${i18n.t('detailProductScreen.available')}`}</Typograph>
         <Typograph>{product?.warrantyInformation}</Typograph>
         <Typograph>{product?.shippingInformation}</Typograph>
       </View>
@@ -65,7 +70,9 @@ const DetailProductScreen = ({route}: {route: any}) => {
         <Typograph>{product?.description}</Typograph>
       </View>
       <View style={{paddingHorizontal: Metrics[12]}}>
-        <Typograph style={styles.reviewTitle}>{'Customer Reviews:'}</Typograph>
+        <Typograph style={styles.reviewTitle}>
+          {i18n.t('detailProductScreen.review')}
+        </Typograph>
         <FlatList
           // horizontal={false}
           scrollEnabled={false}
@@ -86,10 +93,20 @@ const DetailProductScreen = ({route}: {route: any}) => {
                   value={item?.rating}
                   disable={true}
                   customIconActive={
-                    <IconStar fill={Colors.green} stroke={Colors.green} width={24} height={24}/>
+                    <IconStar
+                      fill={Colors.green}
+                      stroke={Colors.green}
+                      width={24}
+                      height={24}
+                    />
                   }
                   customIconInactive={
-                    <IconStar fill={'transparent'} stroke={'black'} width={23} height={23} />
+                    <IconStar
+                      fill={'transparent'}
+                      stroke={'black'}
+                      width={23}
+                      height={23}
+                    />
                   }
                   length={1}
                   justifyContent="flex-start"
