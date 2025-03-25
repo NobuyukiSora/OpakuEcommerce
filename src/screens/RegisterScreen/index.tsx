@@ -25,7 +25,6 @@ const RegisterScreen = () => {
     await analytics().logEvent('user_registered', {
       method: 'google',
     });
-    console.log('regis')
     signInWithGoogle();
   };
 

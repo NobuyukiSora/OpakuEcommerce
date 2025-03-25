@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useState} from 'react';
-import {getAllProducts, insertProduct, Product} from './database';
+import {getAllProducts, insertProduct, Product, removeProduct} from './database';
 
 export const DatabaseContext = createContext<DatabaseContextProps | undefined>(
   undefined,
@@ -8,7 +8,7 @@ export const DatabaseContext = createContext<DatabaseContextProps | undefined>(
 export const DatabaseProvider: React.FC<{children: ReactNode}> = ({
   children,
 }) => {
-  const [product, setProduct] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   const addProduct = (item: Product) => {
     insertProduct(item);
@@ -16,23 +16,23 @@ export const DatabaseProvider: React.FC<{children: ReactNode}> = ({
   };
 
   const refreshProduct = () => {
-    getAllProducts(setProduct);
+    getAllProducts(setProducts);
   };
   const deleteProduct = (id: string) => {
-    deleteProduct(id);
+    removeProduct(id);
     refreshProduct();
   };
 
   return (
     <DatabaseContext.Provider
-      value={{product, addProduct, refreshProduct, deleteProduct}}>
+      value={{products, addProduct, refreshProduct, deleteProduct}}>
       {children}
     </DatabaseContext.Provider>
   );
 };
 
 export interface DatabaseContextProps {
-  product: Product[];
+  products: Product[];
   addProduct: (item: Product) => void;
   refreshProduct: () => void;
   deleteProduct: (id: string) => void;

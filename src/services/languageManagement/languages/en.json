@@ -13,6 +13,11 @@
         "review": "Customer Reviews:",
         "brand": "Brand:",
         "stock": "Stock:",
-        "available": "available"
+        "available": "available",
+        "add_to_cart": "Add to cart"
+    },
+    "toast": {
+        "added_product_success": "Product added successfully",
+        "delete_product_success": "Product deleted successfully"
     }
 }

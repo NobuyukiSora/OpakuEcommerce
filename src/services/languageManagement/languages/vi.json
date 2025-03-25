@@ -1,18 +1,23 @@
 {
-    "homeScreen": {
-      "welcome": "Chào mừng đến với Cửa hàng Opaku"
-    },
-    "drawer": {
-      "logout": "Đăng xuất",
-      "register": "Đăng ký"
-    },
-    "registerScreen": {
-      "login_google": "Đăng nhập bằng Google"
-    },
-    "detailProductScreen": {
-      "review": "Đánh giá của khách hàng:",
-      "brand": "Thương hiệu:",
-      "stock": "Hàng tồn kho:",
-      "available": "có sẵn"
-    }
+  "homeScreen": {
+    "welcome": "Chào mừng đến với Cửa hàng Opaku"
+  },
+  "drawer": {
+    "logout": "Đăng xuất",
+    "register": "Đăng ký"
+  },
+  "registerScreen": {
+    "login_google": "Đăng nhập bằng Google"
+  },
+  "detailProductScreen": {
+    "review": "Đánh giá của khách hàng:",
+    "brand": "Thương hiệu:",
+    "stock": "Hàng tồn kho:",
+    "available": "có sẵn",
+    "add_to_cart": "Thêm vào giỏ hàng"
+  },
+  "toast": {
+    "added_product_success": "Sản phẩm đã được thêm thành công",
+    "delete_product_success": "Sản phẩm đã được xóa thành công"
+  }
 }

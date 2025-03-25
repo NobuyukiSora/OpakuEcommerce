@@ -11,6 +11,7 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Colors, Metrics, Rating, themeColors, Typograph} from 'soras-ui';
 import IconBurger from '../../assets/icons/Ico.Burger.svg';
+import IconCart from '../../assets/icons/Ico.Cart.svg';
 import IconStar from '../../assets/icons/Ico.Star.svg';
 import Navigator from '../../navigation/Navigator';
 import i18n from '../../services/languageManagement/i18n';
@@ -108,6 +109,9 @@ const HomeScreen = (drawer?: React.RefObject<DrawerLayoutAndroid | null>) => {
           <IconBurger stroke={themeColors.text} width={24} height={24} />
         </TouchableOpacity>
         <Typograph customStyle={styles.title}>{i18n.t('homeScreen.welcome')}</Typograph>
+        <TouchableOpacity onPress={() => Navigator.navigate('Cart')}>
+          <IconCart stroke={themeColors.text} width={24} height={24} />
+        </TouchableOpacity>
       </View>
 
       {error && <Typograph>{`${error}`}</Typograph>}

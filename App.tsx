@@ -15,8 +15,13 @@ import {ThemeProvider} from 'soras-ui';
 import AppNavigation from './src/navigation/AppNavigation';
 import {store} from './src/services/redux/store';
 import {DatabaseProvider} from './src/services/sqlite/databaseContext';
+import {createTables} from './src/services/sqlite/database';
 
 function App(): React.JSX.Element {
+  useEffect(() => {
+    createTables();
+  }, []);
+  
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: `${Config.FIREBASE_GOOGLE_KEY}.apps.googleusercontent.com`,

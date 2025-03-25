@@ -1,18 +1,23 @@
 {
-    "homeScreen": {
-      "welcome": "Selamat Datang di Toko Opaku"
-    },
-    "drawer": {
-      "logout": "Keluar",
-      "register": "Daftar"
-    },
-    "registerScreen": {
-      "login_google": "Masuk dengan Google"
-    },
-    "detailProductScreen": {
-      "review": "Ulasan Pelanggan:",
-      "brand": "Merek:",
-      "stock": "Stok:",
-      "available": "tersedia"
-    }
+  "homeScreen": {
+    "welcome": "Selamat Datang di Toko Opaku"
+  },
+  "drawer": {
+    "logout": "Keluar",
+    "register": "Daftar"
+  },
+  "registerScreen": {
+    "login_google": "Masuk dengan Google"
+  },
+  "detailProductScreen": {
+    "review": "Ulasan Pelanggan:",
+    "brand": "Merek:",
+    "stock": "Stok:",
+    "available": "tersedia",
+    "add_to_cart": "Tambah ke keranjang"
+  },
+  "toast": {
+    "added_product_success": "Produk berhasil ditambahkan",
+    "delete_product_success": "Produk berhasil dihapus"
+  }
 }

@@ -7,6 +7,7 @@ import {
   DrawerLayoutAndroid,
   Image,
   StatusBar,
+  Switch,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -27,6 +28,7 @@ import {switchLanguage} from '../services/languageManagement/command';
 import i18n from '../services/languageManagement/i18n';
 import Navigator from './Navigator';
 import {createStyles} from './styles';
+import CartScreen from '../screens/CartScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +51,7 @@ const Language = [
 ];
 
 const AppNavigation = () => {
-  const {theme} = useTheme();
+  const {theme, toggleTheme} = useTheme();
   const insets = useSafeAreaInsets();
   const drawer = useRef<DrawerLayoutAndroid>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -139,9 +141,12 @@ const AppNavigation = () => {
 
   const renderSideView = () => (
     <View style={styles.sideViewContainer}>
+      <View>
       <DynamicScrollView direction="row">
         {renderLanguageList()}
       </DynamicScrollView>
+      <Switch value={theme?.isDark} onChange={() => toggleTheme(theme?.isDark)} />
+      </View>
       {!token ? (
         <Button
           title={i18n.t('drawer.register')}
@@ -180,6 +185,7 @@ const AppNavigation = () => {
               name="ProductDetail"
               component={DetailProductScreen}
             />
+            <Stack.Screen name="Cart" component={CartScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </DrawerLayoutAndroid>

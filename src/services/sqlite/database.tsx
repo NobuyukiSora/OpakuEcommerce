@@ -1,4 +1,6 @@
+import { ToastAndroid } from 'react-native';
 import SQLite from 'react-native-sqlite-storage';
+import i18n from '../languageManagement/i18n';
 
 const db = SQLite.openDatabase(
   {
@@ -157,6 +159,11 @@ export const insertProduct = (product: Product) => {
             (_, error) => console.error('Error inserting review:', error),
           );
         });
+        ToastAndroid.showWithGravity(
+              `${i18n.t('toast.added_product_success')}`,
+              ToastAndroid.SHORT,
+              ToastAndroid.CENTER,
+            );
       },
       (_, error) => console.error('Error inserting product:', error),
     );
@@ -224,7 +231,7 @@ export const getAllProducts = (
   });
 };
 
-export const deleteProduct = (productId: any) => {
+export const removeProduct = (productId: any) => {
   db.transaction(txn => {
     txn.executeSql(`DELETE FROM product_tags WHERE product_id = ?;`, [
       productId,
@@ -245,6 +252,11 @@ export const deleteProduct = (productId: any) => {
         console.error('Error deleting product:', error);
       },
     );
+    ToastAndroid.showWithGravity(
+        `${i18n.t('toast.delete_product_success')}`,
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER,
+      );
   });
 };
 
