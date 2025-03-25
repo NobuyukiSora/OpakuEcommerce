@@ -5,7 +5,6 @@ import {
   DrawerLayoutAndroid,
   FlatList,
   Image,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -71,10 +70,10 @@ const HomeScreen = (drawer?: React.RefObject<DrawerLayoutAndroid | null>) => {
       )}
       <View style={{flex: 1, justifyContent: 'space-between'}}>
         <View>
-          <Text style={styles.productName}>{item?.title}</Text>
-          <Text style={styles.productPrice}>
+          <Typograph customStyle={styles.productName}>{item?.title}</Typograph>
+          <Typograph customStyle={styles.productPrice}>
             {formatCurrency('$', item?.price)}
-          </Text>
+          </Typograph>
         </View>
         <View
           style={{
@@ -108,7 +107,7 @@ const HomeScreen = (drawer?: React.RefObject<DrawerLayoutAndroid | null>) => {
         <TouchableOpacity onPress={() => drawer?.current?.openDrawer()}>
           <IconBurger stroke={themeColors.text} width={24} height={24} />
         </TouchableOpacity>
-        <Text style={styles.title}>{i18n.t('homeScreen.welcome')}</Text>
+        <Typograph customStyle={styles.title}>{i18n.t('homeScreen.welcome')}</Typograph>
       </View>
 
       {error && <Typograph>{`${error}`}</Typograph>}

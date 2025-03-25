@@ -14,6 +14,7 @@ import {Provider} from 'react-redux';
 import {ThemeProvider} from 'soras-ui';
 import AppNavigation from './src/navigation/AppNavigation';
 import {store} from './src/services/redux/store';
+import {DatabaseProvider} from './src/services/sqlite/databaseContext';
 
 function App(): React.JSX.Element {
   useEffect(() => {
@@ -24,13 +25,15 @@ function App(): React.JSX.Element {
   }, [Config]);
 
   return (
-    <ThemeProvider>
+    <DatabaseProvider>
       <Provider store={store}>
-        <SafeAreaProvider>
-          <AppNavigation />
-        </SafeAreaProvider>
+        <ThemeProvider>
+          <SafeAreaProvider>
+            <AppNavigation />
+          </SafeAreaProvider>
+        </ThemeProvider>
       </Provider>
-    </ThemeProvider>
+    </DatabaseProvider>
   );
 }
 
