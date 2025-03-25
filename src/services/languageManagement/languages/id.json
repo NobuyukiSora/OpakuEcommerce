@@ -1,0 +1,18 @@
+{
+    "homeScreen": {
+      "welcome": "Selamat Datang di Toko Opaku"
+    },
+    "drawer": {
+      "logout": "Keluar",
+      "register": "Daftar"
+    },
+    "registerScreen": {
+      "login_google": "Masuk dengan Google"
+    },
+    "detailProductScreen": {
+      "review": "Ulasan Pelanggan:",
+      "brand": "Merek:",
+      "stock": "Stok:",
+      "available": "tersedia"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "homeScreen": {
+      "welcome": "Welcome to Opaku Store"
+    },
+    "drawer": {
+        "logout": "Logout",
+        "register": "Register"
+    },
+    "registerScreen": {
+        "login_google": "Sign-in with Google"
+    },
+    "detailProductScreen": {
+        "review": "Customer Reviews:",
+        "brand": "Brand:",
+        "stock": "Stock:",
+        "available": "available"
+    }
+}

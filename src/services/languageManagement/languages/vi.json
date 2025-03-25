@@ -1,0 +1,18 @@
+{
+    "homeScreen": {
+      "welcome": "Chào mừng đến với Cửa hàng Opaku"
+    },
+    "drawer": {
+      "logout": "Đăng xuất",
+      "register": "Đăng ký"
+    },
+    "registerScreen": {
+      "login_google": "Đăng nhập bằng Google"
+    },
+    "detailProductScreen": {
+      "review": "Đánh giá của khách hàng:",
+      "brand": "Thương hiệu:",
+      "stock": "Hàng tồn kho:",
+      "available": "có sẵn"
+    }
+}
