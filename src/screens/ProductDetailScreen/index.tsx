@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {
   FlatList,
   Image,
@@ -14,10 +14,15 @@ import Navigator from '../../navigation/Navigator';
 import {formatCurrency} from '../../tools/currencyFormat';
 import {createStyles} from './styles';
 import i18n from '../../services/languageManagement/i18n';
+import analytics from '@react-native-firebase/analytics';
 
 const DetailProductScreen = ({route}: {route: any}) => {
   const insets = useSafeAreaInsets();
   const product = route?.params;
+
+  useEffect(()=>{
+    analytics().logScreenView({screen_name: 'DetailProductScreen'});
+  }, [])
 
   const styles = useMemo(
     () => createStyles(Metrics, themeColors),

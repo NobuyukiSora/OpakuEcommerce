@@ -2,9 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import analytics from '@react-native-firebase/analytics';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {Alert, Image, TouchableOpacity, View} from 'react-native';
-import Config from 'react-native-config';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Metrics, themeColors, Typograph} from 'soras-ui';
 import Navigator from '../../navigation/Navigator';
@@ -18,10 +17,15 @@ const RegisterScreen = () => {
     [themeColors],
   );
 
+  useEffect(()=>{
+    analytics().logScreenView({screen_name: 'RegisterScreen'});
+  }, [])
+
   const registerUser = async () => {
     await analytics().logEvent('user_registered', {
-      method: 'email_password',
+      method: 'google',
     });
+    console.log('regis')
     signInWithGoogle();
   };
 
@@ -30,6 +34,7 @@ const RegisterScreen = () => {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       const idToken = userInfo?.data?.idToken;
+      console.log('idToken', idToken)
 
       if (!idToken) {
         throw new Error('Google Sign-In failed: No idToken received');
@@ -39,9 +44,10 @@ const RegisterScreen = () => {
 
       await AsyncStorage.setItem('TOKEN', idToken);
       await auth().signInWithCredential(googleCredential);
+      console.log('Home')
+
       Navigator.pureReset('Home');
     } catch (error) {
-      Alert.alert(`Google Sign-In Error: ${error}`)
       console.error('Google Sign-In Error:', error);
     }
   };

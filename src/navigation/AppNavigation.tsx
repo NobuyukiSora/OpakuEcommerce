@@ -92,11 +92,20 @@ const AppNavigation = () => {
   };
 
   const logout = async () => {
+    await analytics().logEvent('user_logout');
     await AsyncStorage.removeItem('TOKEN');
     drawer?.current?.closeDrawer();
     Navigator.pureReset('Register');
     setToken(null);
   };
+
+  const handleSwitchLanguage = async(languageCode: string) => {
+    await analytics().logEvent('change_language', {
+      language_code: languageCode,
+    });
+    switchLanguage(languageCode);
+      AsyncStorage.setItem('LANGUAGE', languageCode);
+  }
 
   const renderLanguageList = () => {
     const views = [];
@@ -113,10 +122,7 @@ const AppNavigation = () => {
                   : themeColors.backgroundSecondary,
             },
           ]}
-          onPress={() => {
-            switchLanguage(Language[loop].languageCode);
-            AsyncStorage.setItem('LANGUAGE', Language[loop].languageCode);
-          }}>
+          onPress={() => handleSwitchLanguage(Language[loop].languageCode)}>
           <Typograph customStyle={{textAlign: 'center'}}>
             {Language[loop].title}
           </Typograph>
@@ -139,7 +145,7 @@ const AppNavigation = () => {
       {!token ? (
         <Button
           title={i18n.t('drawer.register')}
-          onPress={() => Navigator.navigate('Register')}
+          onPress={() => {Navigator.navigate('Register'); drawer?.current?.closeDrawer()}}
         />
       ) : (
         <TouchableOpacity onPress={logout} style={styles.logoutButton}>
